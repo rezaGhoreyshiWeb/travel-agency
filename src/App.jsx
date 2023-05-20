@@ -1,5 +1,6 @@
 import Destination from "./components/Destination";
 import DownloadApp from "./components/DownloadApp";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Offer from "./components/Offer";
@@ -19,6 +20,7 @@ function App() {
         <Tours />
         <Testimonial />
         <DownloadApp />
+        <Footer />
       </div>
     </>
   );
