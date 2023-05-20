@@ -1,20 +1,19 @@
-import { styled } from "styled-components";
-import hero from "../assets/hero.png";
-import { useState } from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
+import HeroImage from "../assets/hero.png";
 import Button from "./Button";
-
 export default function Home() {
-  const [value, setValue] = useState("$5000 - $10000");
+  const [value, setValue] = useState("$500 - $10,000");
   return (
     <Section>
-      <div className="backgroung">
-        <img src={hero} alt="hero" />
+      <div className="background">
+        <img src={HeroImage} alt="Hero" />
       </div>
       <div className="content">
         <div className="info">
-          <h1>It's time to</h1>
-          <h1>Explore the World</h1>
-          <Button text={"Plan Your Trip"} />
+          <h1>It's Time To</h1>
+          <h1>Explore The World</h1>
+          <Button text="Plan Your Trip" />
         </div>
         <div className="planner">
           <form>
@@ -29,18 +28,16 @@ export default function Home() {
               <label>Check In</label>
               <input type="date" />
             </div>
-
             <div className="row">
               <label>Price Range</label>
               <input
                 type="text"
                 value={value}
-                onChange={(e) => setValuee(e.target.value)}
+                onChange={(e) => setValue(e.target.value)}
               />
             </div>
-
             <div className="row">
-              <Button text={"Discover More"} />
+              <Button text="Discover More" />
             </div>
           </form>
         </div>
@@ -52,13 +49,12 @@ export default function Home() {
 const Section = styled.section`
   margin-top: 2rem;
   position: relative;
-  .backgroung {
+  .background {
     img {
       height: 90vh;
       width: 100%;
     }
   }
-
   .content {
     .info {
       position: absolute;
@@ -69,7 +65,6 @@ const Section = styled.section`
         margin-bottom: 2rem;
       }
     }
-
     .planner {
       position: absolute;
       bottom: -2rem;
@@ -80,7 +75,7 @@ const Section = styled.section`
       form {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         gap: 3rem;
         .row {
           display: flex;
@@ -89,6 +84,14 @@ const Section = styled.section`
           label {
             font-size: 0.7rem;
             color: var(--secondary-text);
+          }
+          input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(58%) sepia(69%) saturate(2588%) hue-rotate(325deg)
+              brightness(105%) contrast(101%);
+          }
+          input:focus {
+            outline: none;
           }
           input,
           select {
@@ -101,16 +104,30 @@ const Section = styled.section`
             border-bottom: 1px solid #f5ebe9;
             padding-bottom: 0.3rem;
           }
-
-          input:focus {
-            outline: none;
-          }
-
-          input[type="date"]::-webkit-calendar-picher-indicator {
-            cursor: pointer;
-            filter: invert(58%) sepia(69%) saturate(258%) hue-rotate(325deg)
-              brightness(105%) contrast(101%);
-          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .background {
+      img {
+        height: 50vh;
+      }
+    }
+    .content {
+      .info {
+        margin-left: 2rem;
+        h1 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+      .planner {
+        position: initial;
+        margin: 2rem;
+        form {
+          align-items: flex-start;
+          flex-direction: column;
         }
       }
     }

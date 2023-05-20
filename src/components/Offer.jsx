@@ -1,12 +1,12 @@
-import { styled } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import lighthouse from "../assets/lighthouse.png";
 import { BiWorld } from "react-icons/bi";
 import { BsHeadphones, BsPerson } from "react-icons/bs";
-
 export default function Offer() {
   const data = [
     {
-      text: "Best Travel Guide Always for your Service",
+      text: "Best Travel Guide Always for your Services",
       icon: <BsPerson />,
       color: "red",
     },
@@ -56,7 +56,6 @@ const Section = styled.section`
       height: 35rem;
     }
   }
-
   .content {
     .title {
       margin: 2rem 0;
@@ -83,13 +82,48 @@ const Section = styled.section`
           background-color: #ff3010aa;
           color: white;
         }
+        .green {
+          background-color: #65ce5455;
+          color: #65ce54;
+        }
         .yellow {
           background-color: #ffc01e55;
           color: #ffc01e;
         }
-        .green {
-          background-color: #65ce5455;
-          color: #65ce54;
+        .text {
+          h3 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    flex-direction: column;
+    margin: 5rem 1rem;
+    gap: 2rem;
+    .image {
+      img {
+        max-inline-size: 100%;
+        block-size: auto;
+      }
+    }
+    .content {
+      .title {
+        h1 {
+          font-size: 2rem;
+          text-align: center;
+        }
+      }
+      .list {
+        li {
+          gap: 1rem;
+          margin: 2rem 0;
+          .text {
+            h3 {
+              font-size: 1rem;
+            }
+          }
         }
       }
     }
